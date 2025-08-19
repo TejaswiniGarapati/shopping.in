@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Services</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #f1f3f6;
+    }
+    /* Header */
+    header {
+      background: #2874f0;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      display: flex;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 2px 0 0 2px;
+    }
+    .search-bar button {
+      padding: 8px 15px;
+      border: none;
+      background: #ff9f00;
+      color: white;
+      border-radius: 0 2px 2px 0;
+      cursor: pointer;
+    }
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* Categories */
+    .categories {
+      background: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-around;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .categories a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Products */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 5px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+    .product-card img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: contain;
+    }
+    .product-card h3 {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .product-card p {
+      font-size: 14px;
+      color: green;
+      font-weight: bold;
+    }
+    .product-card button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #2874f0;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    footer {
+      background: #172337;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Smart Services</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands and more">
+      <button>Search</button>
+    </div>
+    <div class="nav-links">
+      <a href="#">Login</a>
+      <a href="#">Cart</a>
+      <a href="#">More</a>
+    </div>
+  </header>
+
+  <!-- Categories -->
+  <div class="categories">
+    <a href="#">Electronics</a>
+    <a href="#">Fashion</a>
+    <a href="#">Home</a>
+    <a href="#">Appliances</a>
+    <a href="#">Books</a>
+    <a href="#">Toys</a>
+  </div>
+
+  <!-- Products -->
+  <div class="products" id="product-list">
+    <!-- Product Cards will be inserted by JS -->
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Smart Services. All rights reserved.
+  </footer>
+
+  <script>
+    // Example product data
+    const products = [
+      {name: "Smartphone X", price: "₹15,999", img: "https://via.placeholder.com/150"},
+      {name: "Laptop Pro", price: "₹55,499", img: "https://via.placeholder.com/150"},
+      {name: "Headphones", price: "₹1,299", img: "https://via.placeholder.com/150"},
+      {name: "Smart Watch", price: "₹2,999", img: "https://via.placeholder.com/150"},
+      {name: "Shoes", price: "₹799", img: "https://via.placeholder.com/150"},
+      {name: "Microwave Oven", price: "₹6,499", img: "https://via.placeholder.com/150"}
+    ];
+
+    const productList = document.getElementById('product-list');
+
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${p.img}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>${p.price}</p>
+        <button>Add to Cart</button>
+      `;
+      productList.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
